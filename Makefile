@@ -1,8 +1,8 @@
 .PHONY: validate-config run run-gateway-only run-gateway-only-container check-config compose-down clean
 
-ENGINE ?= $(shell command -v podman >/dev/null 2>&1 && echo podman || \
-	(command -v docker >/dev/null 2>&1 && echo docker || \
-	(echo "podman")))
+ENGINE ?= $(shell command -v podman-compose >/dev/null 2>&1 && echo podman-compose || \
+	(command -v docker-compose >/dev/null 2>&1 && echo docker-compose || \
+	(echo "docker compose")))
 
 TRAEFIK_CONFIG ?= config/traefik.yml
 
